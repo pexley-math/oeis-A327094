@@ -345,11 +345,9 @@ def solve_sat(n_target, rows, cols, upper_bound, free_polys, verbose=False):
         if result is not None:
             best_size = k
             best_cells = result
-            if verbose:
-                print(f"    k={k}: SAT (connected) [{elapsed:.1f}s]")
+            print(f"    k = {k}: SAT  [{elapsed:.1f}s]")
         else:
-            if verbose:
-                print(f"    k={k}: UNSAT [{elapsed:.1f}s]")
+            print(f"    k = {k}: UNSAT  [{elapsed:.1f}s]  <-- optimality proved")
             break
 
     return best_size, best_cells
@@ -464,11 +462,9 @@ def solve_sat_plain(n_target, rows, cols, upper_bound, free_polys, verbose=False
         if result is not None:
             best_size = k
             best_cells = result
-            if verbose:
-                print(f"    k={k}: SAT (connected) [{elapsed:.1f}s]")
+            print(f"    k = {k}: SAT  [{elapsed:.1f}s]")
         else:
-            if verbose:
-                print(f"    k={k}: UNSAT [{elapsed:.1f}s]")
+            print(f"    k = {k}: UNSAT  [{elapsed:.1f}s]  <-- optimality proved")
             break
 
     return best_size, best_cells
@@ -541,10 +537,34 @@ def main():
             log_file.write(msg + "\n")
             log_file.flush()
 
+    import platform
+    import datetime
+    try:
+        from pysat import __version__ as pysat_version
+    except ImportError:
+        pysat_version = "unknown"
+
     output("=" * 70)
-    output("A327094 -- Smallest polyomino containing all free n-ominoes")
-    output("SAT solver (CaDiCaL) with shape constraints and connectivity cuts")
+    output("OEIS A327094 -- Smallest polyomino containing all free n-ominoes")
+    output("SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts")
     output("=" * 70)
+    output(f"  Software: CaDiCaL 1.5.3 via PySAT {pysat_version}, "
+           f"Python {platform.python_version()}")
+    output(f"  Hardware: {platform.processor() or platform.machine()}, "
+           f"{platform.system()} {platform.release()}")
+    output(f"  Date: {datetime.date.today().isoformat()}")
+    output(f"  n values to solve: {n_values}")
+
+    # Reference tables
+    output(f"\n  Prior authors' DATA values (from OEIS):")
+    prior_ns = sorted(PRIOR_VALUES.keys())
+    output("    n:    " + "  ".join(f"{n:3d}" for n in prior_ns))
+    output("    a(n): " + "  ".join(f"{PRIOR_VALUES[n]:3d}" for n in prior_ns))
+    if OUR_VALUES:
+        output(f"\n  Values proved by this solver:")
+        our_ns = sorted(OUR_VALUES.keys())
+        output("    n:    " + "  ".join(f"{n:3d}" for n in our_ns))
+        output("    a(n): " + "  ".join(f"{OUR_VALUES[n]:3d}" for n in our_ns))
     output()
 
     results = {}
