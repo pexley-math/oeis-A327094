@@ -1,7 +1,19 @@
 ======================================================================
-A327094 -- Smallest polyomino containing all free n-ominoes
-SAT solver (CaDiCaL) with shape constraints and connectivity cuts
+OEIS A327094 -- Smallest polyomino containing all free n-ominoes
+SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
 ======================================================================
+  Software: CaDiCaL 1.5.3 via PySAT 1.9.dev1, Python 3.12.9
+  Hardware: AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD, Windows 11
+  Date: 2026-03-13
+  n values to solve: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  Prior authors' DATA values (from OEIS):
+    n:      0    1    2    3    4    5    6    7    8
+    a(n):   0    1    2    4    6    9   12   17   20
+
+  Values proved by this solver:
+    n:      9
+    a(n):  26
 
   n = 0
   ----------------------------------------
@@ -71,7 +83,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 7 X 7
     Search: k = 19 down to 7
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(7) = 17  [0.5s]  MATCHED (prior authors)
+    Result: a(7) = 17  [0.6s]  MATCHED (prior authors)
     Verified: OK -- 17 cells, connected, all 108 free 7-ominoes fit
     Bounding box: 4 X 7
      # # # # # # #
@@ -85,7 +97,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 8 X 8
     Search: k = 22 down to 8
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(8) = 20  [4.1s]  MATCHED (prior authors)
+    Result: a(8) = 20  [4.0s]  MATCHED (prior authors)
     Verified: OK -- 20 cells, connected, all 369 free 8-ominoes fit
     Bounding box: 4 X 8
      # # # # # # # #
@@ -99,7 +111,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 9 X 9
     Search: k = 28 down to 9
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(9) = 26  [116.5s]  PROVED
+    Result: a(9) = 26  [109.6s]  PROVED
     Verified: OK -- 26 cells, connected, all 1285 free 9-ominoes fit
     Bounding box: 5 X 9
      # # # # # # # # #
@@ -120,11 +132,11 @@ RESULTS SUMMARY
     4      6      2 X 4       5      0.0s  MATCHED (prior authors)
     5      9      3 X 5      12      0.0s  MATCHED (prior authors)
     6     12      3 X 6      35      0.1s  MATCHED (prior authors)
-    7     17      4 X 7     108      0.5s  MATCHED (prior authors)
-    8     20      4 X 8     369      4.1s  MATCHED (prior authors)
-    9     26      5 X 9    1285    116.5s  PROVED
+    7     17      4 X 7     108      0.6s  MATCHED (prior authors)
+    8     20      4 X 8     369      4.0s  MATCHED (prior authors)
+    9     26      5 X 9    1285    109.6s  PROVED
 
-  Total time: 121.4s
+  Total time: 114.4s
 
   Solver matches prior authors' DATA values for a(0) through a(8)
   a(9) = 26 proved by this solver
