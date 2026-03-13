@@ -300,7 +300,7 @@
       7
     ],
     "status": "MATCHED",
-    "elapsed": 0.6,
+    "elapsed": 0.5,
     "num_free_polyominoes": 108
   },
   "8": {
@@ -393,7 +393,7 @@
       8
     ],
     "status": "MATCHED",
-    "elapsed": 4.7,
+    "elapsed": 4.3,
     "num_free_polyominoes": 369
   },
   "9": {
@@ -509,8 +509,8 @@
       5,
       9
     ],
-    "status": "MATCHED",
-    "elapsed": 131.3,
+    "status": "PROVED",
+    "elapsed": 109.3,
     "num_free_polyominoes": 1285
   }
 }
