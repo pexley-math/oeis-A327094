@@ -57,6 +57,7 @@ python code/solver-a327094.py --verbose --log run.txt
 | File | Description |
 |------|-------------|
 | `code/solver-a327094.py` | Unified SAT solver (all terms) |
+| `code/generate-figures.py` | Figure generator (reads JSON, outputs Typst) |
 | `research/solver-results.json` | Machine-readable results |
 | `research/solver-run-log.txt` | Full solver output log |
 | `submission/a327094-figures.pdf` | Solution figure for a(9) |
