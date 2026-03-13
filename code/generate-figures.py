@@ -54,7 +54,7 @@ def main():
   #v(0.3em)
   #text(size: 10pt)[Smallest connected polyomino that contains every free n-omino]
   #v(0.2em)
-  #text(size: 10pt)[Proved Optimal: a(3) through a(9)]
+  #text(size: 10pt)[SAT-Proved Optimal: a(9) = 26]
   #v(0.2em)
   #text(size: 8pt, style: "italic")[Computed by Peter Exley, March 2026]
 ]
@@ -63,7 +63,7 @@ def main():
 #v(0.3em)
 """)
 
-    for n in range(3, 10):
+    for n in [9]:  # Only our proved term, not prior authors'
         key = str(n)
         if key not in data:
             continue
@@ -116,22 +116,8 @@ def main():
 ]
 """)
 
-    # Color legend
     parts.append("""#v(0.5em)
 #line(length: 100%, stroke: 0.5pt)
-#v(0.3em)
-#align(center)[
-#text(size: 9pt, weight: "bold")[Legend]
-#v(0.2em)
-#grid(columns: 2, gutter: 10pt,
-  box(inset: 2pt)[#rect(width: 11pt, height: 11pt,
-    fill: rgb("#4A90D9"), stroke: 0.3pt + black)[]
-    #text(size: 8pt)[ = Filled cell (part of container)]],
-  box(inset: 2pt)[#rect(width: 11pt, height: 11pt,
-    fill: white, stroke: 0.3pt + luma(200))[]
-    #text(size: 8pt)[ = Empty (outside container)]],
-)
-]
 """)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
