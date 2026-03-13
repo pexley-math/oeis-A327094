@@ -3,7 +3,7 @@ Generate Typst visual figures for A327094 optimal containers.
 Colored grid cells: blue (filled), invisible (empty).
 White grid lines separate cells within the polyomino.
 Reads solver-results.json, outputs a327094-figures.typ.
-Shows a(3)-a(9): matched prior authors' terms plus our proved a(9).
+Shows a(9): our proved term only.
 """
 
 import json
