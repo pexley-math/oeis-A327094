@@ -1,7 +1,6 @@
 {
   "sequence_id": "A327094",
   "title": "Smallest Polyomino Containing All Free n-ominoes",
-  "concept_doi": "10.5281/zenodo.18993740",
   "github_url": "https://github.com/pexley-math/oeis-A327094",
   "oeis_url": "https://oeis.org/A327094",
   "figure_filename": "a327094-figures",
@@ -23,7 +22,6 @@
   "results_file": "research/solver-results.json",
   "log_file": "research/solver-run-log.txt",
   "files": [
-    ".zenodo.json",
     "LICENSE",
     "README.md",
     "code/solver-a327094.py",

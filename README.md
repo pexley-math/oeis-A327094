@@ -1,7 +1,5 @@
 # OEIS A327094: Smallest Polyomino Containing All Free n-ominoes
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18993740.svg)](https://doi.org/10.5281/zenodo.18993740)
-
 Solver code, data, and figures for [OEIS A327094](https://oeis.org/A327094).
 
 ## The Problem
@@ -75,7 +73,9 @@ Hardware: AMD Ryzen 5 5600 (6-core), 16 GB RAM.
 
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) -- Peter Exley, 2026.
 
+This work is freely available. If you find it useful, a citation or acknowledgment
+is appreciated but not required.
+
 ## Links
 
 - **OEIS page:** https://oeis.org/A327094
-- **Zenodo DOI:** [10.5281/zenodo.18993740](https://doi.org/10.5281/zenodo.18993740)
