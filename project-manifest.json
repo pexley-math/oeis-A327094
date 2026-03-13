@@ -1,0 +1,36 @@
+{
+  "sequence_id": "A327094",
+  "title": "Smallest Polyomino Containing All Free n-ominoes",
+  "concept_doi": "10.5281/zenodo.18993740",
+  "github_url": "https://github.com/pexley-math/oeis-A327094",
+  "oeis_url": "https://oeis.org/A327094",
+  "figure_filename": "a327094-figures",
+  "readme_has_bounding_boxes": false,
+  "license": "CC-BY-4.0",
+  "author": "Peter Exley",
+  "git_author_name": "Peter Exley",
+  "git_author_email": "pexley-math@users.noreply.github.com",
+  "known_terms": {
+    "0": 0, "1": 1, "2": 2, "3": 4, "4": 6,
+    "5": 9, "6": 12, "7": 17, "8": 20, "9": 26
+  },
+  "our_terms": {
+    "9": {"value": 26, "status": "PROVED", "bounding_box": "5 X 9"}
+  },
+  "prior_terms_range": "a(0) through a(8)",
+  "solver_type": "SAT",
+  "solver_file": "code/solver-a327094.py",
+  "results_file": "research/solver-results.json",
+  "log_file": "research/solver-run-log.txt",
+  "files": [
+    ".zenodo.json",
+    "LICENSE",
+    "README.md",
+    "code/solver-a327094.py",
+    "code/generate-figures.py",
+    "research/solver-results.json",
+    "research/solver-run-log.txt",
+    "submission/a327094-figures.pdf",
+    "submission/a327094-figures.typ"
+  ]
+}
