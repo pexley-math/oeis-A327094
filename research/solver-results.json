@@ -7,7 +7,7 @@
       0,
       0
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0
   },
   "1": {
@@ -23,7 +23,7 @@
       1,
       1
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0
   },
   "2": {
@@ -43,7 +43,7 @@
       1,
       2
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0
   },
   "3": {
@@ -71,7 +71,7 @@
       2,
       3
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0,
     "num_free_polyominoes": 2
   },
@@ -108,7 +108,7 @@
       2,
       4
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0,
     "num_free_polyominoes": 5
   },
@@ -157,7 +157,7 @@
       3,
       5
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.0,
     "num_free_polyominoes": 12
   },
@@ -218,7 +218,7 @@
       3,
       6
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 0.1,
     "num_free_polyominoes": 35
   },
@@ -299,8 +299,8 @@
       4,
       7
     ],
-    "status": "MATCHED",
-    "elapsed": 0.6,
+    "status": "MATCHED (prior authors)",
+    "elapsed": 0.5,
     "num_free_polyominoes": 108
   },
   "8": {
@@ -392,7 +392,7 @@
       4,
       8
     ],
-    "status": "MATCHED",
+    "status": "MATCHED (prior authors)",
     "elapsed": 4.1,
     "num_free_polyominoes": 369
   },
@@ -510,7 +510,7 @@
       9
     ],
     "status": "PROVED",
-    "elapsed": 110.5,
+    "elapsed": 116.5,
     "num_free_polyominoes": 1285
   }
 }
