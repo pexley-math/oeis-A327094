@@ -1,0 +1,25 @@
+{
+  "title": "OEIS A327094: Smallest Polyomino Containing All Free n-ominoes -- Solver code, data, and figures",
+  "description": "SAT solver (PySAT/CaDiCaL) for OEIS A327094. Matches all 9 known terms a(0) through a(8) proved by prior authors. Proves a(9) = 26 (SAT at k=26, UNSAT at k=25). Includes solver code (Python/PySAT), solution data (JSON), solver run log, and colored figure PDF.",
+  "creators": [
+    {
+      "name": "Exley, Peter"
+    }
+  ],
+  "upload_type": "software",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "OEIS",
+    "A327094",
+    "polyomino",
+    "container",
+    "SAT solver"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://oeis.org/A327094",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
