@@ -116,8 +116,22 @@ def main():
 ]
 """)
 
+    # Color legend
     parts.append("""#v(0.5em)
 #line(length: 100%, stroke: 0.5pt)
+#v(0.3em)
+#align(center)[
+#text(size: 9pt, weight: "bold")[Legend]
+#v(0.2em)
+#grid(columns: 2, gutter: 10pt,
+  box(inset: 2pt)[#rect(width: 11pt, height: 11pt,
+    fill: rgb("#4A90D9"), stroke: 0.3pt + black)[]
+    #text(size: 8pt)[ = Filled cell (part of container)]],
+  box(inset: 2pt)[#rect(width: 11pt, height: 11pt,
+    fill: white, stroke: 0.3pt + luma(200))[]
+    #text(size: 8pt)[ = Empty (outside container)]],
+)
+]
 """)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
