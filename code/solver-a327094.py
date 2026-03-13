@@ -559,14 +559,14 @@ def main():
         if n == 0:
             # The empty polyomino contains all free 0-ominoes (there is 1: the empty shape)
             elapsed = time.time() - t0
-            output(f"    Trivial: a(0) = 0 (empty polyomino)")
-            output(f"    Time: {elapsed:.3f}s")
+            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            output(f"    Trivial: a(0) = 0 (empty polyomino)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 0,
                 "size": 0,
                 "cells": [],
                 "grid_size": [0, 0],
-                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
+                "status": status,
                 "elapsed": round(elapsed, 3),
             }
             output()
@@ -575,14 +575,14 @@ def main():
         if n == 1:
             # A single cell contains the only free 1-omino
             elapsed = time.time() - t0
-            output(f"    Trivial: a(1) = 1 (single cell)")
-            output(f"    Time: {elapsed:.3f}s")
+            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            output(f"    Trivial: a(1) = 1 (single cell)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 1,
                 "size": 1,
                 "cells": [[0, 0]],
                 "grid_size": [1, 1],
-                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
+                "status": status,
                 "elapsed": round(elapsed, 3),
             }
             output()
@@ -591,14 +591,14 @@ def main():
         if n == 2:
             # Two adjacent cells contain both free 2-ominoes (there is only 1: the domino)
             elapsed = time.time() - t0
-            output(f"    Trivial: a(2) = 2 (domino)")
-            output(f"    Time: {elapsed:.3f}s")
+            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            output(f"    Trivial: a(2) = 2 (domino)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 2,
                 "size": 2,
                 "cells": [[0, 0], [0, 1]],
                 "grid_size": [1, 2],
-                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
+                "status": status,
                 "elapsed": round(elapsed, 3),
             }
             output()
