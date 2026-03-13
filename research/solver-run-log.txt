@@ -5,15 +5,15 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
 
   n = 0
   ----------------------------------------
-    Trivial: a(0) = 0 (empty polyomino)  [0.000s]  MATCHED
+    Trivial: a(0) = 0 (empty polyomino)  [0.000s]  MATCHED (prior authors)
 
   n = 1
   ----------------------------------------
-    Trivial: a(1) = 1 (single cell)  [0.000s]  MATCHED
+    Trivial: a(1) = 1 (single cell)  [0.000s]  MATCHED (prior authors)
 
   n = 2
   ----------------------------------------
-    Trivial: a(2) = 2 (domino)  [0.000s]  MATCHED
+    Trivial: a(2) = 2 (domino)  [0.000s]  MATCHED (prior authors)
 
   n = 3
   ----------------------------------------
@@ -21,7 +21,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 3 X 3
     Search: k = 6 down to 3
     Mode: unconstrained (small n)
-    Result: a(3) = 4  [0.0s]  MATCHED
+    Result: a(3) = 4  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 4 cells, connected, all 2 free 3-ominoes fit
     Bounding box: 2 X 3
      # # #
@@ -33,7 +33,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 4 X 4
     Search: k = 8 down to 4
     Mode: unconstrained (small n)
-    Result: a(4) = 6  [0.0s]  MATCHED
+    Result: a(4) = 6  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 6 cells, connected, all 5 free 4-ominoes fit
     Bounding box: 2 X 4
      # # # #
@@ -45,7 +45,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 5 X 5
     Search: k = 11 down to 5
     Mode: unconstrained (small n)
-    Result: a(5) = 9  [0.0s]  MATCHED
+    Result: a(5) = 9  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 9 cells, connected, all 12 free 5-ominoes fit
     Bounding box: 3 X 5
      . . # # #
@@ -58,7 +58,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 6 X 6
     Search: k = 14 down to 6
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(6) = 12  [0.1s]  MATCHED
+    Result: a(6) = 12  [0.1s]  MATCHED (prior authors)
     Verified: OK -- 12 cells, connected, all 35 free 6-ominoes fit
     Bounding box: 3 X 6
      # # # # # #
@@ -71,7 +71,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 7 X 7
     Search: k = 19 down to 7
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(7) = 17  [0.6s]  MATCHED
+    Result: a(7) = 17  [0.5s]  MATCHED (prior authors)
     Verified: OK -- 17 cells, connected, all 108 free 7-ominoes fit
     Bounding box: 4 X 7
      # # # # # # #
@@ -85,7 +85,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 8 X 8
     Search: k = 22 down to 8
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(8) = 20  [4.1s]  MATCHED
+    Result: a(8) = 20  [4.1s]  MATCHED (prior authors)
     Verified: OK -- 20 cells, connected, all 369 free 8-ominoes fit
     Bounding box: 4 X 8
      # # # # # # # #
@@ -99,7 +99,7 @@ SAT solver (CaDiCaL) with shape constraints and connectivity cuts
     Grid: 9 X 9
     Search: k = 28 down to 9
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(9) = 26  [110.5s]  PROVED
+    Result: a(9) = 26  [116.5s]  PROVED
     Verified: OK -- 26 cells, connected, all 1285 free 9-ominoes fit
     Bounding box: 5 X 9
      # # # # # # # # #
@@ -113,23 +113,21 @@ RESULTS SUMMARY
 ======================================================================
     n   a(n)        Box   Polys      Time  Status
   ---  -----  ---------  ------  --------  ------
-    0      0         --       1      0.0s  MATCHED
-    1      1      1 X 1       1      0.0s  MATCHED
-    2      2      1 X 2       1      0.0s  MATCHED
-    3      4      2 X 3       2      0.0s  MATCHED
-    4      6      2 X 4       5      0.0s  MATCHED
-    5      9      3 X 5      12      0.0s  MATCHED
-    6     12      3 X 6      35      0.1s  MATCHED
-    7     17      4 X 7     108      0.6s  MATCHED
-    8     20      4 X 8     369      4.1s  MATCHED
-    9     26      5 X 9    1285    110.5s  PROVED
+    0      0         --       1      0.0s  MATCHED (prior authors)
+    1      1      1 X 1       1      0.0s  MATCHED (prior authors)
+    2      2      1 X 2       1      0.0s  MATCHED (prior authors)
+    3      4      2 X 3       2      0.0s  MATCHED (prior authors)
+    4      6      2 X 4       5      0.0s  MATCHED (prior authors)
+    5      9      3 X 5      12      0.0s  MATCHED (prior authors)
+    6     12      3 X 6      35      0.1s  MATCHED (prior authors)
+    7     17      4 X 7     108      0.5s  MATCHED (prior authors)
+    8     20      4 X 8     369      4.1s  MATCHED (prior authors)
+    9     26      5 X 9    1285    116.5s  PROVED
 
-  Total time: 115.3s
+  Total time: 121.4s
 
   Solver matches prior authors' DATA values for a(0) through a(8)
   a(9) = 26 proved by this solver
 
   Solutions saved to research/solver-results.json
-
-  Full log saved to research/solver-run-log.txt
 

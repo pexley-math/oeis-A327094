@@ -559,7 +559,7 @@ def main():
         if n == 0:
             # The empty polyomino contains all free 0-ominoes (there is 1: the empty shape)
             elapsed = time.time() - t0
-            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            status = "MATCHED (prior authors)" if n in PRIOR_VALUES else "PROVED"
             output(f"    Trivial: a(0) = 0 (empty polyomino)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 0,
@@ -575,7 +575,7 @@ def main():
         if n == 1:
             # A single cell contains the only free 1-omino
             elapsed = time.time() - t0
-            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            status = "MATCHED (prior authors)" if n in PRIOR_VALUES else "PROVED"
             output(f"    Trivial: a(1) = 1 (single cell)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 1,
@@ -591,7 +591,7 @@ def main():
         if n == 2:
             # Two adjacent cells contain both free 2-ominoes (there is only 1: the domino)
             elapsed = time.time() - t0
-            status = "MATCHED" if n in PRIOR_VALUES else "PROVED"
+            status = "MATCHED (prior authors)" if n in PRIOR_VALUES else "PROVED"
             output(f"    Trivial: a(2) = 2 (domino)  [{elapsed:.3f}s]  {status}")
             results[n] = {
                 "n": 2,
@@ -647,7 +647,7 @@ def main():
 
             # Determine status
             if n in PRIOR_VALUES and best_size == PRIOR_VALUES[n]:
-                status = "MATCHED"
+                status = "MATCHED (prior authors)"
             elif n in OUR_VALUES and best_size == OUR_VALUES[n]:
                 status = "PROVED"
             elif known_val is not None and best_size < known_val:
@@ -747,9 +747,6 @@ def main():
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(json_results, f, indent=2)
         output(f"\n  Solutions saved to {args.json}")
-
-    if args.log:
-        output(f"\n  Full log saved to {args.log}")
 
     output()
 
