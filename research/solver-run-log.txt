@@ -30,9 +30,13 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 3
   ----------------------------------------
     2 free 3-ominoes
-    Grid: 3 X 3
+    Search grid: 3 X 3 (bounding box for SAT formula)
     Search: k = 6 down to 3
     Mode: unconstrained (small n)
+    k = 6: SAT  [0.0s]
+    k = 5: SAT  [0.0s]
+    k = 4: SAT  [0.0s]
+    k = 3: UNSAT  [0.0s]  <-- optimality proved
     Result: a(3) = 4  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 4 cells, connected, all 2 free 3-ominoes fit
     Bounding box: 2 X 3
@@ -42,9 +46,13 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 4
   ----------------------------------------
     5 free 4-ominoes
-    Grid: 4 X 4
+    Search grid: 4 X 4 (bounding box for SAT formula)
     Search: k = 8 down to 4
     Mode: unconstrained (small n)
+    k = 8: SAT  [0.0s]
+    k = 7: SAT  [0.0s]
+    k = 6: SAT  [0.0s]
+    k = 5: UNSAT  [0.0s]  <-- optimality proved
     Result: a(4) = 6  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 6 cells, connected, all 5 free 4-ominoes fit
     Bounding box: 2 X 4
@@ -54,9 +62,13 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 5
   ----------------------------------------
     12 free 5-ominoes
-    Grid: 5 X 5
+    Search grid: 5 X 5 (bounding box for SAT formula)
     Search: k = 11 down to 5
     Mode: unconstrained (small n)
+    k = 11: SAT  [0.0s]
+    k = 10: SAT  [0.0s]
+    k = 9: SAT  [0.0s]
+    k = 8: UNSAT  [0.0s]  <-- optimality proved
     Result: a(5) = 9  [0.0s]  MATCHED (prior authors)
     Verified: OK -- 9 cells, connected, all 12 free 5-ominoes fit
     Bounding box: 3 X 5
@@ -67,9 +79,13 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 6
   ----------------------------------------
     35 free 6-ominoes
-    Grid: 6 X 6
+    Search grid: 6 X 6 (bounding box for SAT formula)
     Search: k = 14 down to 6
     Mode: shape-constrained (contiguous rows, I-row pinned)
+    k = 14: SAT  [0.0s]
+    k = 13: SAT  [0.0s]
+    k = 12: SAT  [0.0s]
+    k = 11: UNSAT  [0.0s]  <-- optimality proved
     Result: a(6) = 12  [0.1s]  MATCHED (prior authors)
     Verified: OK -- 12 cells, connected, all 35 free 6-ominoes fit
     Bounding box: 3 X 6
@@ -80,9 +96,13 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 7
   ----------------------------------------
     108 free 7-ominoes
-    Grid: 7 X 7
+    Search grid: 7 X 7 (bounding box for SAT formula)
     Search: k = 19 down to 7
     Mode: shape-constrained (contiguous rows, I-row pinned)
+    k = 19: SAT  [0.1s]
+    k = 18: SAT  [0.1s]
+    k = 17: SAT  [0.1s]
+    k = 16: UNSAT  [0.3s]  <-- optimality proved
     Result: a(7) = 17  [0.6s]  MATCHED (prior authors)
     Verified: OK -- 17 cells, connected, all 108 free 7-ominoes fit
     Bounding box: 4 X 7
@@ -94,10 +114,14 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 8
   ----------------------------------------
     369 free 8-ominoes
-    Grid: 8 X 8
+    Search grid: 8 X 8 (bounding box for SAT formula)
     Search: k = 22 down to 8
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(8) = 20  [4.0s]  MATCHED (prior authors)
+    k = 22: SAT  [0.5s]
+    k = 21: SAT  [0.8s]
+    k = 20: SAT  [0.5s]
+    k = 19: UNSAT  [1.9s]  <-- optimality proved
+    Result: a(8) = 20  [4.1s]  MATCHED (prior authors)
     Verified: OK -- 20 cells, connected, all 369 free 8-ominoes fit
     Bounding box: 4 X 8
      # # # # # # # #
@@ -108,10 +132,14 @@ SAT solver (CaDiCaL 1.5.3) with shape constraints and connectivity cuts
   n = 9
   ----------------------------------------
     1285 free 9-ominoes
-    Grid: 9 X 9
+    Search grid: 9 X 9 (bounding box for SAT formula)
     Search: k = 28 down to 9
     Mode: shape-constrained (contiguous rows, I-row pinned)
-    Result: a(9) = 26  [109.6s]  PROVED
+    k = 28: SAT  [5.6s]
+    k = 27: SAT  [5.6s]
+    k = 26: SAT  [15.9s]
+    k = 25: UNSAT  [187.0s]  <-- optimality proved
+    Result: a(9) = 26  [215.8s]  PROVED
     Verified: OK -- 26 cells, connected, all 1285 free 9-ominoes fit
     Bounding box: 5 X 9
      # # # # # # # # #
@@ -133,13 +161,13 @@ RESULTS SUMMARY
     5      9      3 X 5      12      0.0s  MATCHED (prior authors)
     6     12      3 X 6      35      0.1s  MATCHED (prior authors)
     7     17      4 X 7     108      0.6s  MATCHED (prior authors)
-    8     20      4 X 8     369      4.0s  MATCHED (prior authors)
-    9     26      5 X 9    1285    109.6s  PROVED
+    8     20      4 X 8     369      4.1s  MATCHED (prior authors)
+    9     26      5 X 9    1285    215.8s  PROVED
 
-  Total time: 114.4s
+  Total time: 220.7s
 
   Solver matches prior authors' DATA values for a(0) through a(8)
   a(9) = 26 proved by this solver
 
-  Solutions saved to research/solver-results.json
+  Solutions saved to public-repo/research/solver-results.json
 

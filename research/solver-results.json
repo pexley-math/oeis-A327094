@@ -393,7 +393,7 @@
       8
     ],
     "status": "MATCHED (prior authors)",
-    "elapsed": 4.0,
+    "elapsed": 4.1,
     "num_free_polyominoes": 369
   },
   "9": {
@@ -510,7 +510,7 @@
       9
     ],
     "status": "PROVED",
-    "elapsed": 109.6,
+    "elapsed": 215.8,
     "num_free_polyominoes": 1285
   }
 }

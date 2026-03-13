@@ -527,15 +527,26 @@ def main():
     n_values = parse_n_arg(args.n)
 
     # Set up logging to file (tee stdout)
-    log_file = None
     if args.log:
+        import io
         log_file = open(args.log, "w", encoding="utf-8")
+
+        class Tee(io.TextIOBase):
+            def __init__(self, *streams):
+                self.streams = streams
+            def write(self, data):
+                for s in self.streams:
+                    s.write(data)
+                    s.flush()
+                return len(data)
+            def flush(self):
+                for s in self.streams:
+                    s.flush()
+
+        sys.stdout = Tee(sys.__stdout__, log_file)
 
     def output(msg=""):
         print(msg)
-        if log_file:
-            log_file.write(msg + "\n")
-            log_file.flush()
 
     import platform
     import datetime
@@ -638,7 +649,7 @@ def main():
         grid_r = n
         grid_c = n
 
-        output(f"    Grid: {grid_r} X {grid_c}")
+        output(f"    Search grid: {grid_r} X {grid_c} (bounding box for SAT formula)")
         output(f"    Search: k = {upper} down to {n}")
 
         # For n <= 5, shape constraints may over-restrict the search space.
@@ -770,7 +781,8 @@ def main():
 
     output()
 
-    if log_file:
+    if args.log:
+        sys.stdout = sys.__stdout__
         log_file.close()
 
 
