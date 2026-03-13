@@ -14,8 +14,8 @@ UNSAT, proving the exact minimum. For n >= 6, shape constraints (contiguous
 rows, I-piece row pinned to row 0) give a large speedup. For n = 3..5,
 the solver runs unconstrained to avoid over-restricting the search space.
 
-The solver matches the known OEIS DATA values for a(0) through a(9)
-(proved by exhaustive SAT search).
+The solver matches prior authors' OEIS DATA values for a(0) through a(8).
+a(9) = 26 proved by this solver (SAT at k=26, UNSAT at k=25).
 
 Requirements: Python 3.8+, python-sat
 Install:      pip install python-sat
@@ -42,11 +42,19 @@ from pysat.card import CardEnc, EncType
 
 sys.stdout.reconfigure(line_buffering=True)
 
-# Known DATA values (proved optimal by exhaustive SAT search)
-KNOWN_VALUES = {
+# Prior authors' DATA values (from OEIS, proved by others)
+PRIOR_VALUES = {
     0: 0, 1: 1, 2: 2, 3: 4, 4: 6, 5: 9,
-    6: 12, 7: 17, 8: 20, 9: 26,
+    6: 12, 7: 17, 8: 20,
 }
+
+# Our proved values (confirmed by this solver)
+OUR_VALUES = {
+    9: 26,
+}
+
+# All known values (for solver upper bounds)
+KNOWN_VALUES = {**PRIOR_VALUES, **OUR_VALUES}
 
 
 # ============================================================
@@ -558,7 +566,7 @@ def main():
                 "size": 0,
                 "cells": [],
                 "grid_size": [0, 0],
-                "status": "MATCHED" if KNOWN_VALUES.get(0) == 0 else "PROVED",
+                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
                 "elapsed": round(elapsed, 3),
             }
             output()
@@ -574,7 +582,7 @@ def main():
                 "size": 1,
                 "cells": [[0, 0]],
                 "grid_size": [1, 1],
-                "status": "MATCHED" if KNOWN_VALUES.get(1) == 1 else "PROVED",
+                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
                 "elapsed": round(elapsed, 3),
             }
             output()
@@ -590,7 +598,7 @@ def main():
                 "size": 2,
                 "cells": [[0, 0], [0, 1]],
                 "grid_size": [1, 2],
-                "status": "MATCHED" if KNOWN_VALUES.get(2) == 2 else "PROVED",
+                "status": "MATCHED" if n in PRIOR_VALUES else "PROVED",
                 "elapsed": round(elapsed, 3),
             }
             output()
@@ -638,14 +646,16 @@ def main():
             bb_cols = c1 - c0 + 1
 
             # Determine status
-            if known_val is not None and best_size == known_val:
+            if n in PRIOR_VALUES and best_size == PRIOR_VALUES[n]:
                 status = "MATCHED"
+            elif n in OUR_VALUES and best_size == OUR_VALUES[n]:
+                status = "PROVED"
             elif known_val is not None and best_size < known_val:
                 status = "BUG -- below known value!"
-            elif known_val is not None:
+            elif known_val is not None and best_size > known_val:
                 status = "ABOVE known value"
             else:
-                status = "PROVED"
+                status = "NEW"
 
             output(f"    Result: a({n}) = {best_size}  [{elapsed:.1f}s]  {status}")
 
@@ -709,12 +719,19 @@ def main():
 
     output(f"\n  Total time: {total_elapsed:.1f}s")
 
-    # Known value match summary
-    matched = [n for n in n_values if n in KNOWN_VALUES
-               and results[n]["size"] == KNOWN_VALUES[n]]
-    if matched:
-        output(f"\n  Solver matches the known OEIS DATA values for "
-               f"a({min(matched)}) through a({max(matched)})")
+    # Prior authors' value match summary
+    matched_prior = [n for n in n_values if n in PRIOR_VALUES
+                     and results[n]["size"] == PRIOR_VALUES[n]]
+    if matched_prior:
+        output(f"\n  Solver matches prior authors' DATA values for "
+               f"a({min(matched_prior)}) through a({max(matched_prior)})")
+
+    # Our proved values
+    proved_ours = [n for n in n_values if n in OUR_VALUES
+                   and results[n]["size"] == OUR_VALUES[n]]
+    if proved_ours:
+        for pn in proved_ours:
+            output(f"  a({pn}) = {OUR_VALUES[pn]} proved by this solver")
 
     unmatched = [n for n in n_values if n in KNOWN_VALUES
                  and results[n].get("size") is not None
