@@ -32,13 +32,7 @@ Exact SAT solver using PySAT/CaDiCaL. Boolean variables for cell occupancy on
 an n X n grid, with auxiliary variables for each valid placement of each free
 n-omino. Shape constraints (contiguous rows, exactly one full row of width n,
 symmetry breaking) reduce the search space. Top-down search from upper bound
-proves optimality. Hardware: AMD Ryzen 5 5600 (6-core), 16 GB RAM.
-
-## Prior Art and Acknowledgments
-
-The sequence A327094 was created by Dmitry Kamenetsky (2019). Terms a(0) through
-a(8) were proved by Kamenetsky and other contributors. This work proves the next
-term a(9) = 26 using SAT.
+proves optimality.
 
 ## Running the Solver
 
@@ -67,6 +61,19 @@ python code/solver-a327094.py --json results.json --verbose --log run.txt
 | `research/solver-results.json` | Machine-readable results |
 | `research/solver-run-log.txt` | Full solver output log |
 | `submission/a327094-figures.pdf` | Solution figure for a(9) |
+
+## Prior Art and Acknowledgments
+
+The sequence A327094 was created by Peter Kagey (2019). Terms a(0) through
+a(8) were proved by Kagey. This work proves the next term a(9) = 26
+using SAT.
+
+This work was inspired by the [OEIS](https://oeis.org/) and the community of
+contributors who maintain it.
+
+## Hardware
+
+AMD Ryzen 5 5600 (6-core), 16 GB RAM.
 
 ## License
 
