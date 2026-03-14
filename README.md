@@ -65,7 +65,7 @@ python code/solver-a327094.py --json results.json --verbose --log run.txt
 ## Prior Art and Acknowledgments
 
 The sequence A327094 was created by Peter Kagey (2019). Terms a(0) through
-a(8) were proved by Kagey. This work proves the next term a(9) = 26
+a(8) were proved by Peter Kagey. This work proves the next term a(9) = 26
 using SAT.
 
 This work was inspired by the [OEIS](https://oeis.org/) and the community of
