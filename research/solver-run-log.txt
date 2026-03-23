@@ -215,8 +215,8 @@ RESULTS SUMMARY
   (area ratio up to 2.0).
 
   a(0)-a(8) match prior author (Peter Kagey).
-  a(9) = 26 accepted by OEIS (Sean A. Irvine, 18/03/2026).
-  a(10) = 31 matches conjecture (Peter Taylor, Code Golf SE).
+  a(9) = 26 proved by Peter Exley (accepted by Sean A. Irvine, 18/03/2026).
+  a(10) = 31 proved by Peter Exley (confirms conjecture by Peter Taylor, Code Golf SE).
 
   Optimisations applied:
     - I-piece symmetry break: 4x speedup on UNSAT proofs
