@@ -76,4 +76,4 @@ This work is freely available. If you find it useful, a citation or acknowledgme
 ## Links
 
 - **OEIS page:** https://oeis.org/A327094
-- **Quarter-squares:** https://oeis.org/A002620 (staircase lower bound)
+- **Quarter-squares (staircase lower bound):** https://oeis.org/A002620
