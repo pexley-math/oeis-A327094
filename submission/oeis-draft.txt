@@ -38,54 +38,6 @@
 %e A327094   ....####..
 %e A327094   .....###..
 
-%o A327094 (Python)
-%o A327094 from ortools.sat.python import cp_model
-%o A327094 def a(n):
-%o A327094     if n == 0: return 0
-%o A327094     def free(n):  # enumerate free n-ominoes
-%o A327094         if n <= 1: return [frozenset([(0,0)])] if n else [frozenset()]
-%o A327094         def canon(s):
-%o A327094             cs = list(s)
-%o A327094             orients = []
-%o A327094             for _ in range(4):
-%o A327094                 orients.append(tuple(sorted((r-min(r2 for r2,_ in cs), c-min(c2 for _,c2 in cs)) for r,c in cs)))
-%o A327094                 cs = [(-c,r) for r,c in cs]
-%o A327094             cs = [(r,-c) for r,c in list(s)]
-%o A327094             for _ in range(4):
-%o A327094                 orients.append(tuple(sorted((r-min(r2 for r2,_ in cs), c-min(c2 for _,c2 in cs)) for r,c in cs)))
-%o A327094                 cs = [(-c,r) for r,c in cs]
-%o A327094             return min(orients)
-%o A327094         prev, seen, res = free(n-1), set(), []
-%o A327094         for p in prev:
-%o A327094             for r,c in p:
-%o A327094                 for dr,dc in [(0,1),(0,-1),(1,0),(-1,0)]:
-%o A327094                     if (r+dr,c+dc) not in p:
-%o A327094                         q = canon(p|{(r+dr,c+dc)})
-%o A327094                         if q not in seen: seen.add(q); res.append(frozenset(q))
-%o A327094         return res
-%o A327094     import math; pieces = free(n)
-%o A327094     h0 = math.ceil(n/2)
-%o A327094     for k in range(n, n*(n-1)//2+1):
-%o A327094         for w in range(n, int(k*1.8)+2):
-%o A327094             for H in range(h0, w+1):
-%o A327094                 if H*w < k or H*w > int(k*1.8)+1: continue
-%o A327094                 m = cp_model.CpModel()
-%o A327094                 x = {(r,c): m.NewBoolVar(f'x_{r}_{c}') for r in range(H) for c in range(w)}
-%o A327094                 m.Add(sum(x.values()) == k)
-%o A327094                 for piece in pieces:
-%o A327094                     pvs = []
-%o A327094                     for orient in set(tuple(sorted((r-min(r2 for r2,_ in cs),c-min(c2 for _,c2 in cs)) for r,c in cs)) for cs in [list(piece)]+[[((-1)**j*c+(-1)**i*r)[::(-1)**((i+j)%2)] for r,c in list(piece)] for i in range(4) for j in range(2)] if True):
-%o A327094                         for dr in range(H-max(r for r,_ in orient)):
-%o A327094                             for dc in range(w-max(c for _,c in orient)):
-%o A327094                                 b = m.NewBoolVar(''); [m.AddImplication(b,x[(r+dr,c+dc)]) for r,c in orient]; pvs.append(b)
-%o A327094                     m.AddBoolOr(pvs)
-%o A327094                 s = cp_model.CpSolver(); s.parameters.max_time_in_seconds = 60
-%o A327094                 if s.Solve(m) in (cp_model.OPTIMAL, cp_model.FEASIBLE): return k
-%o A327094     return -1
-%o A327094 # Prints: 0, 1, 2, 4, 6, 9, 12, 17, 20, 26, 31
-%o A327094 # print([a(n) for n in range(11)])  # slow for n >= 9
-%o A327094 # _Peter Exley_, Mar 23 2026
-
 %Y A327094 Cf. _A000105_ (number of free n-ominoes), _A002620_ (quarter-squares: staircase lower bound).
 
 %H A327094 Peter Exley, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>
