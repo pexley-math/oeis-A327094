@@ -8,11 +8,17 @@ a(n) is the minimum number of cells in a polyomino that contains all free n-omin
 
 ## Results
 
-| n | a(n) | Status |
-|---|------|--------|
-| 0-8 | 0, 1, 2, 4, 6, 9, 12, 17, 20 | Known (Peter Kagey) |
-| 9 | 26 | **Proved (this work)** |
-| 10 | 31 | **Proved (this work)** |
+Known terms (proved by prior authors):
+
+| n | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| a(n) | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 17 | 20 | 26 |
+
+New proved terms (this work):
+
+| n | 10 |
+|---|---|
+| a(n) | 31 |
 
 Conjectured: a(11) = 37, a(12) = 43.
 
