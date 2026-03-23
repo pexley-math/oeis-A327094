@@ -10,15 +10,15 @@ a(n) is the minimum number of cells in a polyomino that contains all free n-omin
 
 Known terms (proved by prior authors):
 
-| n | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| a(n) | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 17 | 20 | 26 |
+| n | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|---|
+| a(n) | 0 | 1 | 2 | 4 | 6 | 9 | 12 | 17 | 20 |
 
 New proved terms (this work):
 
-| n | 10 |
-|---|---|
-| a(n) | 31 |
+| n | 9 | 10 |
+|---|---|---|
+| a(n) | 26 | 31 |
 
 Conjectured: a(11) = 37, a(12) = 43.
 
