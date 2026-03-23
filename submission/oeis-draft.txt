@@ -24,20 +24,36 @@
 %C A327094 All optimal containers for n = 3..10 have bounding box ceil(n/2) x n.
 %C A327094 (End)
 
+%e A327094 From _Peter Exley_, Mar 23 2026: (Start)
 %e A327094 For n = 9, the smallest container has a(9) = 26 cells on a 5x9 grid:
-%e A327094   #########
-%e A327094   .#######.
-%e A327094   ...#####.
-%e A327094   .....##..
-%e A327094   .....###.
-%e A327094
+%e A327094 +---+---+---+---+---+---+---+---+---+
+%e A327094 | * | * | * | * | * | * | * | * | * |
+%e A327094     +---+---+---+---+---+---+---+
+%e A327094     | * | * | * | * | * | * | * |
+%e A327094             +---+---+---+---+---+
+%e A327094             | * | * | * | * | * |
+%e A327094                     +---+---+
+%e A327094                     | * | * |
+%e A327094                     +---+---+---+
+%e A327094                     | * | * | * |
+%e A327094                     +---+---+---+
+%e A327094 .
 %e A327094 For n = 10, the smallest container has a(10) = 31 cells on a 5x10 grid:
-%e A327094   ##########
-%e A327094   ########..
-%e A327094   ..######..
-%e A327094   ....####..
-%e A327094   .....###..
+%e A327094 +---+---+---+---+---+---+---+---+---+---+
+%e A327094 | * | * | * | * | * | * | * | * | * | * |
+%e A327094 +---+---+---+---+---+---+---+---+
+%e A327094 | * | * | * | * | * | * | * | * |
+%e A327094         +---+---+---+---+---+---+
+%e A327094         | * | * | * | * | * | * |
+%e A327094                 +---+---+---+---+
+%e A327094                 | * | * | * | * |
+%e A327094                     +---+---+---+
+%e A327094                     | * | * | * |
+%e A327094                     +---+---+---+
+%e A327094 (End)
 
 %Y A327094 Cf. _A000105_ (number of free n-ominoes), _A002620_ (quarter-squares: staircase lower bound).
 
-%H A327094 Peter Exley, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>
+%H A327094 _Peter Exley_, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>
+
+%E A327094 a(10) from _Peter Exley_, Mar 23 2026
