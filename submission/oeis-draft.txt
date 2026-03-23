@@ -11,7 +11,7 @@
 %C A327094
 %C A327094 Conjecture: a(n) = floor((n+1)^2/4) + 1 for n >= 9.
 %C A327094 This matches Peter Taylor's conjectures a(11) = 37, a(12) = 43.
-%C A327094 The formula floor((n+1)^2/4) = A002620(n+1) counts cells in the
+%C A327094 The formula floor((n+1)^2/4) = _A002620_(n+1) counts cells in the
 %C A327094 "staircase" polyomino with row widths n, n-2, n-4, ..., which is
 %C A327094 optimal for n <= 6 and n = 8 but requires one extra cell for n >= 9.
 %C A327094
@@ -86,6 +86,6 @@
 %o A327094 # print([a(n) for n in range(11)])  # slow for n >= 9
 %o A327094 # _Peter Exley_, Mar 23 2026
 
-%Y A327094 Cf. A000105 (number of free n-ominoes), A002620 (quarter-squares: staircase lower bound).
+%Y A327094 Cf. _A000105_ (number of free n-ominoes), _A002620_ (quarter-squares: staircase lower bound).
 
 %H A327094 Peter Exley, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>
