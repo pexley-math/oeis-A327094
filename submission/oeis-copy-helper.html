@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><title>OEIS A327094 - Copy Helper</title>
+<style>
+body { font-family: monospace; margin: 20px; }
+h3 { margin-top: 30px; }
+textarea { width: 100%; font-family: monospace; font-size: 13px; padding: 8px; }
+button { margin: 5px 0; padding: 5px 15px; cursor: pointer; }
+.note { color: #666; font-size: 12px; margin-bottom: 5px; }
+</style>
+<script>
+function copyText(id) {
+  var ta = document.getElementById(id);
+  ta.select();
+  document.execCommand('copy');
+}
+</script>
+</head>
+<body>
+<h2>OEIS A327094 - Copy Helper</h2>
+<p>Click "Copy" next to each field, then paste directly into the OEIS edit page.<br>
+Page: <a href="https://oeis.org/A327094" target="_blank">https://oeis.org/A327094</a></p>
+
+<p class="note">Sections follow the OEIS edit form order: DATA, COMMENTS, LINKS, EXAMPLE, CROSSREFS, EXTENSIONS.</p>
+
+<h3>1. DATA LINE</h3>
+<textarea id="data" rows="1">0,1,2,4,6,9,12,17,20,26,31</textarea>
+<button onclick="copyText('data')">Copy Data</button>
+
+<h3>2. COMMENTS</h3>
+<p class="note">Paste as one block into the COMMENTS field:</p>
+<textarea id="comments" rows="12">From _Peter Exley_, Mar 23 2026: (Start)
+a(10) = 31, proved by CP-SAT (OR-Tools) with CEGAR connectivity. SAT at k=31 on 5x10 grid (54.9s). UNSAT at k=30 proved on all grids satisfying the spanning bound (H+W-1 <= 30, H >= 5, W >= 10), with I-piece symmetry break. Cross-validated using CaDiCaL.
+
+The optimal container for n=10 has the "staircase" structure with row widths 10, 8, 6, 4, 3 on a 5x10 grid.
+
+Conjecture: a(n) = floor((n+1)^2/4) + 1 for n >= 9. This matches Peter Taylor's conjectures a(11) = 37, a(12) = 43. The formula floor((n+1)^2/4) = A002620(n+1) counts cells in the "staircase" polyomino with row widths n, n-2, n-4, ..., which is optimal for n <= 6 and n = 8 but requires one extra cell for n >= 9.
+
+Observation: a(n) >= floor((n+1)^2/4) for all n, with equality for n = 0..6 and n = 8. The staircase lower bound arises because the container must span at least ceil(n/2) rows (spanning bound theorem: |P| >= H + W - 1 for connected polyomino P) and n columns (to contain the straight n-omino).
+
+All optimal containers for n = 3..10 have bounding box ceil(n/2) x n.
+(End)</textarea>
+<button onclick="copyText('comments')">Copy Comments</button>
+
+<h3>3. LINKS</h3>
+<textarea id="link" rows="1">Peter Exley, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a></textarea>
+<button onclick="copyText('link')">Copy Link</button>
+
+<h3>4. EXAMPLE</h3>
+<textarea id="example" rows="14">For n = 9, the smallest container has a(9) = 26 cells on a 5x9 grid:
+  #########
+  .#######.
+  ...#####.
+  .....##..
+  .....###.
+
+For n = 10, the smallest container has a(10) = 31 cells on a 5x10 grid:
+  ##########
+  ########..
+  ..######..
+  ....####..
+  .....###..</textarea>
+<button onclick="copyText('example')">Copy Example</button>
+
+<h3>5. CROSSREFS</h3>
+<textarea id="xref" rows="1">Cf. A000105 (number of free n-ominoes), A002620 (quarter-squares: staircase lower bound).</textarea>
+<button onclick="copyText('xref')">Copy Crossrefs</button>
+
+<h3>6. KEYWORDS</h3>
+<textarea id="kw" rows="1">nonn,more,changed</textarea>
+<button onclick="copyText('kw')">Copy Keywords</button>
+
+<h3>7. EXTENSIONS</h3>
+<textarea id="ext" rows="1">a(10) from Peter Exley, Mar 23 2026</textarea>
+<button onclick="copyText('ext')">Copy Extensions</button>
+
+</body>
+</html>

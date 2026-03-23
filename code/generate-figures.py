@@ -1,131 +1,115 @@
-"""
-Generate Typst visual figures for A327094 optimal containers.
-Colored grid cells: blue (filled), invisible (empty).
-White grid lines separate cells within the polyomino.
-Reads solver-results.json, outputs a327094-figures.typ.
-Shows a(9): our proved term only.
+#!/usr/bin/env python3
+"""Generate publication and understanding figures for A327094.
+
+Reads solver-results.json and produces:
+  1. submission/a327094-figures.typ -- publication PDF (our new terms only: a(9), a(10))
+  2. research/a327094-understanding.typ -- personal understanding diagram
 """
 
 import json
 import os
+import sys
 
-CELL_MM = 7
-FILL = "#4A90D9"
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_DIR = os.path.dirname(_SCRIPT_DIR)
+_PAPER_DIR = os.path.dirname(_PROJECT_DIR)
+if _PAPER_DIR not in sys.path:
+    sys.path.insert(0, _PAPER_DIR)
+
+from figure_gen_utils.document_builder import DocumentBuilder
 
 
-def status_badge(status_str):
-    """Return (label, color) for status badge."""
-    if "MATCHED" in status_str:
-        return "MATCHED", "#6C757D"
-    if "PROVED" in status_str:
-        return "PROVED", "#27AE60"
-    return "UPPER BOUND", "#E67E22"
+def load_results():
+    path = os.path.join(_PROJECT_DIR, "research", "solver-results.json")
+    with open(path) as f:
+        return json.load(f)
+
+
+def make_cell_set(result):
+    """Convert result cells to set of (r,c) tuples."""
+    return set(tuple(c) for c in result["cells"])
+
+
+def publication_figures(results):
+    """Generate publication PDF showing only OUR new terms (a(9), a(10))."""
+    doc = DocumentBuilder(
+        title="A327094: Smallest Polyomino Containing All Free $n$-ominoes",
+        description="$a(n)$ = minimum cells in a polyomino containing "
+                    "all free $n$-ominoes as subshapes",
+        sequence_line="$a(9) = 26$, $a(10) = 31$",
+    )
+
+    # Only show our new contributions: a(9) and a(10)
+    for n_str in ["9", "10"]:
+        r = results[n_str]
+        cells = make_cell_set(r)
+        gh, gw = r["grid_size"]
+        n = r["n"]
+        k = r["size"]
+        pieces = r["num_free_polyominoes"]
+
+        doc.add_binary_figure(
+            cells, bbox_rows=gh, bbox_cols=gw, n=n, k=k,
+            status="PROVED", mode="container",
+            detail_text=(f"{gh} \\u{{00D7}} {gw} bounding box, "
+                         f"{k} cells, contains all {pieces} free "
+                         f"{n}-ominoes"),
+        )
+
+    out = os.path.join(_PROJECT_DIR, "submission", "a327094-figures.typ")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    doc.generate(out)
+    print(f"Publication figures: {out}")
+    return out
+
+
+def understanding_figure(results):
+    """Generate personal understanding diagram for a(5) and a(10)."""
+    doc = DocumentBuilder(
+        title="A327094: Understanding Diagram",
+        description="What does a container polyomino look like?",
+        sequence_line="Selected terms: $a(5) = 9$, $a(10) = 31$",
+    )
+
+    # a(5) = 9: small enough to visualise piece containment
+    r5 = results["5"]
+    cells5 = make_cell_set(r5)
+    doc.add_binary_figure(
+        cells5, bbox_rows=r5["grid_size"][0], bbox_cols=r5["grid_size"][1],
+        n=5, k=9, status="PROVED", mode="container",
+        detail_text="9 cells on 3x5 grid. Contains all 12 free pentominoes.",
+    )
+
+    # a(10) = 31: the frontier term with staircase structure
+    r10 = results["10"]
+    cells10 = make_cell_set(r10)
+    doc.add_binary_figure(
+        cells10, bbox_rows=r10["grid_size"][0], bbox_cols=r10["grid_size"][1],
+        n=10, k=31, status="PROVED", mode="container",
+        detail_text=("31 cells on 5x10 grid. Contains all 4655 free "
+                     "10-ominoes. Staircase pattern: rows 10, 8, 6, 4, 3."),
+    )
+
+    out = os.path.join(_PROJECT_DIR, "research", "a327094-understanding.typ")
+    doc.generate(out)
+    print(f"Understanding figure: {out}")
+    return out
 
 
 def main():
-    base = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base, "..", "research", "solver-results.json")
-    out_path = os.path.join(base, "..", "submission", "a327094-figures.typ")
+    results = load_results()
 
-    with open(json_path) as f:
-        data = json.load(f)
+    pub_path = publication_figures(results)
+    und_path = understanding_figure(results)
 
-    parts = []
-
-    parts.append("""#set page(
-  paper: "a4",
-  margin: (top: 2cm, bottom: 2cm, left: 1.5cm, right: 1.5cm),
-  header: context {
-    if counter(page).get().first() > 1 [
-      #align(center)[#text(size: 8pt, fill: luma(120))[A327094: Smallest Polyomino Containing All Free n-ominoes]]
-    ]
-  },
-  footer: context {
-    let current = counter(page).get().first()
-    let total = counter(page).final().first()
-    align(center)[#text(size: 8pt, fill: luma(120))[Page #current of #total]]
-  },
-)
-#set text(font: "New Computer Modern", size: 9pt)
-""")
-
-    parts.append("""#align(center)[
-  #text(size: 16pt, weight: "bold")[A327094: Smallest Polyomino Containing All Free n-ominoes]
-  #v(0.3em)
-  #text(size: 10pt)[Smallest connected polyomino that contains every free n-omino]
-  #v(0.2em)
-  #text(size: 10pt)[SAT-Proved Optimal: a(9) = 26]
-  #v(0.2em)
-  #text(size: 8pt, style: "italic")[Computed by Peter Exley, March 2026]
-]
-#v(0.5em)
-#line(length: 100%, stroke: 0.5pt)
-#v(0.3em)
-""")
-
-    for n in [9]:  # Only our proved term, not prior authors'
-        key = str(n)
-        if key not in data:
-            continue
-        rec = data[key]
-        cells = [(c[0], c[1]) for c in rec["cells"]]
-        size = rec["size"]
-        rows, cols = rec["grid_size"]
-        status = rec.get("status", "PROVED")
-        num_polys = rec.get("num_free_polyominoes", "?")
-
-        min_r = min(r for r, c in cells)
-        min_c = min(c for r, c in cells)
-        filled = set((r - min_r, c - min_c) for r, c in cells)
-
-        badge_label, badge_color = status_badge(status)
-
-        cell_lines = []
-        for r in range(rows):
-            for c in range(cols):
-                if (r, c) in filled:
-                    cell_lines.append(
-                        f'      table.cell(fill: rgb("{FILL}"))[]'
-                    )
-                else:
-                    cell_lines.append(
-                        '      table.cell(fill: white)[]'
-                    )
-        cells_str = ",\n".join(cell_lines)
-
-        parts.append(f"""#block(breakable: false, width: 100%)[
-  #align(center)[
-    #text(size: 11pt, weight: "bold")[a({n}) = {size}]
-    #h(0.5em)
-    #text(size: 8pt, weight: "bold", fill: rgb("{badge_color}"))[\\[{badge_label}\\]]
-  ]
-  #align(center)[
-    #text(size: 8pt)[{rows} X {cols} bounding box, contains all {num_polys} free {n}-ominoes]
-  ]
-  #v(0.3em)
-  #align(center)[
-    #table(
-      columns: ({CELL_MM}mm,) * {cols},
-      rows: ({CELL_MM}mm,) * {rows},
-      inset: 0pt,
-      stroke: 0.5pt + white,
-{cells_str},
-    )
-  ]
-  #v(0.5em)
-]
-""")
-
-    parts.append("""#v(0.5em)
-#line(length: 100%, stroke: 0.5pt)
-""")
-
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(parts))
-
-    print(f"Generated: {out_path}")
-    print(f"Compile with: typst compile {out_path}")
+    # Compile if typst is available
+    from figure_gen_utils.typst_page import compile_typst
+    for path in [pub_path, und_path]:
+        try:
+            compile_typst(path)
+            print(f"  Compiled: {path.replace('.typ', '.pdf')}")
+        except Exception as e:
+            print(f"  Typst compile failed for {path}: {e}")
 
 
 if __name__ == "__main__":
