@@ -22,7 +22,7 @@ CP-SAT (OR-Tools) with CEGAR connectivity, two-phase search
   Accepted value (Peter Exley, a(9)):
     a(9) = 26
 
-  Conjectured (Peter Taylor, Code Golf SE):
+  Conjectured:
     a(10) = 31, a(11) = 37, a(12) = 43
 
   n = 0
@@ -216,7 +216,7 @@ RESULTS SUMMARY
 
   a(0)-a(8) match prior author (Peter Kagey).
   a(9) = 26 proved by Peter Exley (accepted by Sean A. Irvine, 18/03/2026).
-  a(10) = 31 proved by Peter Exley (confirms conjecture by Peter Taylor, Code Golf SE).
+  a(10) = 31 proved by Peter Exley (confirms conjectured value).
 
   Optimisations applied:
     - I-piece symmetry break: 4x speedup on UNSAT proofs
