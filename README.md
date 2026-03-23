@@ -18,7 +18,7 @@
 | 9 | 26 | 5x9 | 1285 | 124s | Peter Exley |
 | 10 | 31 | 5x10 | 4655 | 1952s | Peter Exley |
 
-Conjectured: a(11) = 37, a(12) = 43 (Peter Taylor).
+Conjectured: a(11) = 37, a(12) = 43.
 
 ## Method
 
