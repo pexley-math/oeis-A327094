@@ -90,7 +90,7 @@ of contributors who maintain it.
 
 ## Hardware
 
-AMD Ryzen 5 5600 (6-core), 16 GB RAM.
+AMD Ryzen 5 5600 (6-core / 12-thread), 16 GB RAM.
 
 ## License
 
