@@ -24,6 +24,8 @@
 %C A327094 All optimal containers for n = 3..10 have bounding box ceiling(n/2) X n.
 %C A327094 (End)
 
+%H A327094 _Peter Exley_, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>, GitHub.
+
 %e A327094 From _Peter Exley_, Mar 23 2026: (Start)
 %e A327094 For n = 10, the smallest container has a(10) = 31 cells on a 5 X 10 grid:
 %e A327094 +---+---+---+---+---+---+---+---+---+---+
@@ -40,7 +42,5 @@
 %e A327094 (End)
 
 %Y A327094 Cf. A000105 (number of free n-ominoes), A002620 (quarter-squares: staircase lower bound).
-
-%H A327094 _Peter Exley_, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>, GitHub.
 
 %E A327094 a(10) from _Peter Exley_, Mar 23 2026
