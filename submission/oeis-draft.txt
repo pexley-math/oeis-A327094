@@ -2,30 +2,30 @@
 
 %C A327094 From _Peter Exley_, Mar 23 2026: (Start)
 %C A327094 a(10) = 31, proved by CP-SAT (OR-Tools) with CEGAR connectivity.
-%C A327094 SAT at k=31 on 5x10 grid (54.9s). UNSAT at k=30 proved on all
+%C A327094 SAT at k=31 on 5 X 10 grid (54.9s). UNSAT at k=30 proved on all
 %C A327094 grids satisfying the spanning bound (H+W-1 <= 30, H >= 5, W >= 10),
 %C A327094 with I-piece symmetry break. Cross-validated using CaDiCaL.
 %C A327094
 %C A327094 The optimal container for n=10 has the "staircase" structure with
-%C A327094 row widths 10, 8, 6, 4, 3 on a 5x10 grid.
+%C A327094 row widths 10, 8, 6, 4, 3 on a 5 X 10 grid.
 %C A327094
 %C A327094 Conjecture: a(n) = floor((n+1)^2/4) + 1 for n >= 9.
 %C A327094 This matches the conjectured values a(11) = 37, a(12) = 43.
-%C A327094 The formula floor((n+1)^2/4) = _A002620_(n+1) counts cells in the
+%C A327094 The formula floor((n+1)^2/4) = A002620(n+1) counts cells in the
 %C A327094 "staircase" polyomino with row widths n, n-2, n-4, ..., which is
 %C A327094 optimal for n <= 6 and n = 8 but requires one extra cell for n >= 9.
 %C A327094
 %C A327094 Observation: a(n) >= floor((n+1)^2/4) for all n, with equality for
 %C A327094 n = 0..6 and n = 8. The staircase lower bound arises because the
-%C A327094 container must span at least ceil(n/2) rows (spanning bound theorem:
+%C A327094 container must span at least ceiling(n/2) rows (spanning bound theorem:
 %C A327094 |P| >= H + W - 1 for connected polyomino P) and n columns (to
 %C A327094 contain the straight n-omino).
 %C A327094
-%C A327094 All optimal containers for n = 3..10 have bounding box ceil(n/2) x n.
+%C A327094 All optimal containers for n = 3..10 have bounding box ceiling(n/2) X n.
 %C A327094 (End)
 
 %e A327094 From _Peter Exley_, Mar 23 2026: (Start)
-%e A327094 For n = 10, the smallest container has a(10) = 31 cells on a 5x10 grid:
+%e A327094 For n = 10, the smallest container has a(10) = 31 cells on a 5 X 10 grid:
 %e A327094 +---+---+---+---+---+---+---+---+---+---+
 %e A327094 | * | * | * | * | * | * | * | * | * | * |
 %e A327094 +---+---+---+---+---+---+---+---+---+---+
@@ -39,8 +39,8 @@
 %e A327094                     +---+---+---+
 %e A327094 (End)
 
-%Y A327094 Cf. _A000105_ (number of free n-ominoes), _A002620_ (quarter-squares: staircase lower bound).
+%Y A327094 Cf. A000105 (number of free n-ominoes), A002620 (quarter-squares: staircase lower bound).
 
-%H A327094 _Peter Exley_, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>
+%H A327094 _Peter Exley_, <a href="https://github.com/pexley-math/oeis-A327094">Solver code, data, and figures</a>, GitHub.
 
 %E A327094 a(10) from _Peter Exley_, Mar 23 2026
