@@ -45,7 +45,7 @@ candidate grids.
 Key optimizations:
 - **I-piece symmetry break:** fix straight n-omino to canonical position
   (4x UNSAT speedup)
-- **Spanning bound grid filter:** skip grids with H < ceil(n/2)
+- **Spanning bound grid filter:** skip grids with H < ceiling(n/2)
 - **Cross-validation:** CaDiCaL confirms UNSAT without connectivity
   (stronger proof)
 
