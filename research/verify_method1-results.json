@@ -1,0 +1,99 @@
+{
+  "verifier": "verify_method1",
+  "method": "geometric set-inclusion on square lattice (pure Python BFS growth, D4 rotation/reflection + translation, disjoint enumeration, free quotient)",
+  "timestamp": "2026-05-27T16:57:34",
+  "per_term_timeout_s": 3600.0,
+  "overall_status": "PASS",
+  "results": [
+    {
+      "n": 1,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=1: 1 cells connected, all 1 free 1-ominoes contained (method1 geometric)",
+      "elapsed": 0.0,
+      "pieces_checked": 1,
+      "container_size": 1
+    },
+    {
+      "n": 2,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=2: 2 cells connected, all 1 free 2-ominoes contained (method1 geometric)",
+      "elapsed": 0.0,
+      "pieces_checked": 1,
+      "container_size": 2
+    },
+    {
+      "n": 3,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=3: 4 cells connected, all 2 free 3-ominoes contained (method1 geometric)",
+      "elapsed": 0.0005002021789550781,
+      "pieces_checked": 2,
+      "container_size": 4
+    },
+    {
+      "n": 4,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=4: 6 cells connected, all 5 free 4-ominoes contained (method1 geometric)",
+      "elapsed": 0.0010075569152832031,
+      "pieces_checked": 5,
+      "container_size": 6
+    },
+    {
+      "n": 5,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=5: 9 cells connected, all 12 free 5-ominoes contained (method1 geometric)",
+      "elapsed": 0.005519390106201172,
+      "pieces_checked": 12,
+      "container_size": 9
+    },
+    {
+      "n": 6,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=6: 12 cells connected, all 35 free 6-ominoes contained (method1 geometric)",
+      "elapsed": 0.01752781867980957,
+      "pieces_checked": 35,
+      "container_size": 12
+    },
+    {
+      "n": 7,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=7: 17 cells connected, all 108 free 7-ominoes contained (method1 geometric)",
+      "elapsed": 0.07416796684265137,
+      "pieces_checked": 108,
+      "container_size": 17
+    },
+    {
+      "n": 8,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=8: 20 cells connected, all 369 free 8-ominoes contained (method1 geometric)",
+      "elapsed": 0.2940046787261963,
+      "pieces_checked": 369,
+      "container_size": 20
+    },
+    {
+      "n": 9,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=9: 26 cells connected, all 1285 free 9-ominoes contained (method1 geometric)",
+      "elapsed": 1.2206940650939941,
+      "pieces_checked": 1285,
+      "container_size": 26
+    },
+    {
+      "n": 10,
+      "ok": true,
+      "status": "PASS",
+      "detail": "n=10: 31 cells connected, all 4655 free 10-ominoes contained (method1 geometric)",
+      "elapsed": 5.232582330703735,
+      "pieces_checked": 4655,
+      "container_size": 31
+    }
+  ]
+}

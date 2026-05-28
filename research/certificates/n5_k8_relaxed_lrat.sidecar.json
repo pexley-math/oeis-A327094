@@ -1,0 +1,24 @@
+{
+  "seq_id": "A327094",
+  "n": 5,
+  "k_star": 9,
+  "proof_k": 8,
+  "method": "relaxed_lrat",
+  "claim": "no 8-cell SUBSET of any window grid contains every free 5-omino (relaxed, no connectivity) -> a(5) >= 9",
+  "relaxed": true,
+  "checker": "lrat-check",
+  "all_grids_verified": true,
+  "grids": [
+    {
+      "grid": [
+        3,
+        5
+      ],
+      "verified": true,
+      "n_subset": 12,
+      "n_pieces": 12,
+      "proof_bytes": 90482,
+      "error": null
+    }
+  ]
+}

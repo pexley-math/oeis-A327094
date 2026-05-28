@@ -1,0 +1,35 @@
+{
+  "seq_id": "A327094",
+  "n": 6,
+  "k_star": 12,
+  "proof_k": 11,
+  "method": "relaxed_lrat",
+  "claim": "no 11-cell SUBSET of any window grid contains every free 6-omino (relaxed, no connectivity) -> a(6) >= 12",
+  "relaxed": true,
+  "checker": "lrat-check",
+  "all_grids_verified": true,
+  "grids": [
+    {
+      "grid": [
+        3,
+        6
+      ],
+      "verified": true,
+      "n_subset": 35,
+      "n_pieces": 35,
+      "proof_bytes": 183260,
+      "error": null
+    },
+    {
+      "grid": [
+        3,
+        7
+      ],
+      "verified": true,
+      "n_subset": 35,
+      "n_pieces": 35,
+      "proof_bytes": 297108,
+      "error": null
+    }
+  ]
+}

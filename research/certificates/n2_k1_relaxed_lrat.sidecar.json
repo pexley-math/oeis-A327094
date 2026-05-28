@@ -1,0 +1,35 @@
+{
+  "seq_id": "A327094",
+  "n": 2,
+  "k_star": 2,
+  "proof_k": 1,
+  "method": "relaxed_lrat",
+  "claim": "no 1-cell SUBSET of any window grid contains every free 2-omino (relaxed, no connectivity) -> a(2) >= 2",
+  "relaxed": true,
+  "checker": "lrat-check",
+  "all_grids_verified": true,
+  "grids": [
+    {
+      "grid": [
+        1,
+        2
+      ],
+      "verified": true,
+      "n_subset": 1,
+      "n_pieces": 1,
+      "proof_bytes": 57,
+      "error": null
+    },
+    {
+      "grid": [
+        1,
+        3
+      ],
+      "verified": true,
+      "n_subset": 1,
+      "n_pieces": 1,
+      "proof_bytes": 170,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "1": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n1_1x1_k0.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n1_1x1_k0.lrat",
+    "sidecar_path": "research/certificates/n1_k0_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "2": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n2_1x2_k1.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n2_1x2_k1.lrat",
+    "sidecar_path": "research/certificates/n2_k1_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "3": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n3_2x3_k3.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n3_2x3_k3.lrat",
+    "sidecar_path": "research/certificates/n3_k3_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "4": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n4_2x4_k5.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n4_2x4_k5.lrat",
+    "sidecar_path": "research/certificates/n4_k5_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "5": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n5_3x5_k8.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n5_3x5_k8.lrat",
+    "sidecar_path": "research/certificates/n5_k8_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "6": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n6_3x6_k11.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n6_3x6_k11.lrat",
+    "sidecar_path": "research/certificates/n6_k11_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "7": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n7_4x7_k16.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n7_4x7_k16.lrat",
+    "sidecar_path": "research/certificates/n7_k16_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "8": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n8_4x8_k19.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n8_4x8_k19.lrat",
+    "sidecar_path": "research/certificates/n8_k19_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "9": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n9_5x9_k25.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n9_5x9_k25.lrat",
+    "sidecar_path": "research/certificates/n9_k25_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  },
+  "10": {
+    "certified": true,
+    "verdict": "REFUTATION",
+    "cnf_path": "research/certificates/n10_5x10_k30.cnf",
+    "drat_path": null,
+    "lrat_path": "research/certificates/n10_5x10_k30.lrat",
+    "sidecar_path": "research/certificates/n10_k30_relaxed_lrat.sidecar.json",
+    "check_method": "lrat",
+    "error": null
+  }
+}

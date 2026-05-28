@@ -1,0 +1,19 @@
+verify_method1 run log
+============================================================
+Method: geometric set-inclusion on square lattice (pure Python BFS growth, D4 rotation/reflection + translation, disjoint enumeration, free quotient)
+Timestamp: 2026-05-27T16:57:34
+Per-term timeout: 3600.0 s
+Overall: PASS
+
+  [PASS] n=1: 1 cells connected, all 1 free 1-ominoes contained (method1 geometric)  [0.00s]
+  [PASS] n=2: 2 cells connected, all 1 free 2-ominoes contained (method1 geometric)  [0.00s]
+  [PASS] n=3: 4 cells connected, all 2 free 3-ominoes contained (method1 geometric)  [0.00s]
+  [PASS] n=4: 6 cells connected, all 5 free 4-ominoes contained (method1 geometric)  [0.00s]
+  [PASS] n=5: 9 cells connected, all 12 free 5-ominoes contained (method1 geometric)  [0.01s]
+  [PASS] n=6: 12 cells connected, all 35 free 6-ominoes contained (method1 geometric)  [0.02s]
+  [PASS] n=7: 17 cells connected, all 108 free 7-ominoes contained (method1 geometric)  [0.07s]
+  [PASS] n=8: 20 cells connected, all 369 free 8-ominoes contained (method1 geometric)  [0.29s]
+  [PASS] n=9: 26 cells connected, all 1285 free 9-ominoes contained (method1 geometric)  [1.22s]
+  [PASS] n=10: 31 cells connected, all 4655 free 10-ominoes contained (method1 geometric)  [5.23s]
+
+NO pre-primed values. All free-polyomino classes derived from scratch by independent pure-Python enumeration (cross-checked against A000105 counts).
