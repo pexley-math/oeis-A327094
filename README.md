@@ -80,7 +80,7 @@ is appreciated but not required.
 
 ## Links
 
-- [A000105](https://oeis.org/A000105) -- number of free polyominoes with n cells (the pieces contained)
+- [A000105](https://oeis.org/A000105) -- number of free polyominoes with n cells -- the pieces this sequence contains (N. J. A. Sloane)
 - [A327094](https://oeis.org/A327094) -- OEIS record (this sequence)
-- [A352029](https://oeis.org/A352029) -- number of minimalist n-omino containers (containers achieving a(n))
-- [A395422](https://oeis.org/A395422) -- analogous smallest polyiamond containing all fixed n-iamonds (triangular lattice)
+- [A352029](https://oeis.org/A352029) -- number of minimalist n-omino containers achieving a(n) (John Mason, 2022)
+- [A395422](https://oeis.org/A395422) -- smallest connected polyiamond containing all fixed n-iamonds on the triangular lattice (Peter Exley, 2026)

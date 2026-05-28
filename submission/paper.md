@@ -235,6 +235,8 @@ window.
 We thank Peter Kagey for defining A327094, contributing its first terms, and
 stating the upper bound a(n) <= n(n-1)/2 used as the search ceiling.
 
+This work was inspired by the OEIS and the community of contributors who maintain it.
+
 ## Bibliography
 
 - Kagey, P. (2019). "A327094: Smallest polyomino containing all free n-ominoes." The On-Line Encyclopedia of Integer Sequences. https://oeis.org/A327094
