@@ -51,6 +51,8 @@ lrat-check research/certificates/n10_5x10_k30.cnf research/certificates/n10_5x10
 | `research/solver-run-log.txt` | Solver run log (per-term search transcript). |
 | `research/verify_method1-results.json` | Independent verifier results (one row per term). |
 | `research/verify_method1-run-log.txt` | Independent verifier transcript. |
+| `research/verify_method2-results.json` | Second independent verifier results (disjoint engine). |
+| `research/verify_method2-run-log.txt` | Second independent verifier transcript. |
 | `research/conjecture-report.md` | Conjecture search: subsequence matches, formula tests, near-misses. |
 | `research/certificates/` | Per-term proof certificates (CNF + LRAT + sidecars) and a README with the lrat-check command. |
 | `research/oeis-a327094-animation.gif` | Animation of the optimal construction. |
@@ -78,4 +80,7 @@ is appreciated but not required.
 
 ## Links
 
-- **OEIS page:** https://oeis.org/A327094
+- [A000105](https://oeis.org/A000105) -- number of free polyominoes with n cells (the pieces contained)
+- [A327094](https://oeis.org/A327094) -- OEIS record (this sequence)
+- [A352029](https://oeis.org/A352029) -- number of minimalist n-omino containers (containers achieving a(n))
+- [A395422](https://oeis.org/A395422) -- analogous smallest polyiamond containing all fixed n-iamonds (triangular lattice)

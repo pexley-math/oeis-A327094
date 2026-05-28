@@ -1,0 +1,19 @@
+verify_method2 run log
+============================================================
+Method: glucose relaxed-UNSAT (explicit CNF, piece-CEGAR, no connectivity, sound translation anchor) at k=v-1 over the certified grid window
+Timestamp: 2026-05-27T16:51:38
+Per-term timeout: 3600.0 s
+Overall: PASS
+
+  [PASS] n=1: v=1, k=v-1=0 < n floor; trivially a(n)>=1  [0.00s]
+  [PASS] n=2: v=2, k=v-1=1 < n floor; trivially a(n)>=2  [0.00s]
+  [PASS] n=3: relaxed-UNSAT at k=3 on all 1 window grids => a(n) >= 4 (independent of connectivity)  [0.00s]
+  [PASS] n=4: relaxed-UNSAT at k=5 on all 2 window grids => a(n) >= 6 (independent of connectivity)  [0.00s]
+  [PASS] n=5: relaxed-UNSAT at k=8 on all 1 window grids => a(n) >= 9 (independent of connectivity)  [0.00s]
+  [PASS] n=6: relaxed-UNSAT at k=11 on all 2 window grids => a(n) >= 12 (independent of connectivity)  [0.01s]
+  [PASS] n=7: relaxed-UNSAT at k=16 on all 2 window grids => a(n) >= 17 (independent of connectivity)  [0.09s]
+  [PASS] n=8: relaxed-UNSAT at k=19 on all 2 window grids => a(n) >= 20 (independent of connectivity)  [0.10s]
+  [PASS] n=9: relaxed-UNSAT at k=25 on all 2 window grids => a(n) >= 26 (independent of connectivity)  [1.38s]
+  [PASS] n=10: relaxed-UNSAT at k=30 on all 4 window grids => a(n) >= 31 (independent of connectivity)  [53.21s]
+
+Relaxed-UNSAT (no connectivity) at k=v-1 is STRICTLY STRONGER than no-connected-container, so it independently establishes a(n) >= v. Disjoint solver + encoding from solve_a327094.py; no CEGAR cuts.

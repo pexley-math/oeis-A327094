@@ -180,25 +180,55 @@ one that does -- would settle the scope.
 
 ## Reproducibility
 
-The solver and verifiers run against the project's shared libraries. The proof of
-the full range is reproduced with the solver entry point in frontier-push mode,
-emitting and checking LRAT certificates:
+This section names the specific tools we used and what each one establishes,
+so a reader can repeat the proof rather than take it on trust. The solver
+and verifier source depend on a private shared library and are not
+shipped, but the proof artefacts they produce are self-checking with
+off-the-shelf tools.
+
+**What we used, and what it proves.**
+
+- *Witness search (upper bound).* OR-Tools CP-SAT finds, for each n, a
+  connected k-cell container that holds every free n-omino with k = a(n).
+  Existence of this witness is the upper bound a(n) <= k.
+- *Infeasibility proof (lower bound).* CaDiCaL is run incrementally on
+  the relaxed-cover CNF (the placement constraints without the
+  connectivity requirement) at k = a(n) - 1, with piece-driven CEGAR
+  refinement. UNSAT on the relaxed problem implies UNSAT on the
+  connected problem, so this establishes a(n) >= k + 1 = a(n).
+- *Machine-checked refutation certificate.* CaDiCaL emits an LRAT proof
+  of the UNSAT verdict for each (n, k) and bounding-box window. We run
+  the reference checker lrat-check on every emitted .cnf / .lrat pair;
+  a `s VERIFIED` result is a third-party, code-free check that the
+  refutation is correct.
+- *First independent verifier (geometric upper bound).* A pure-Python
+  geometric verifier re-enumerates the free n-ominoes from scratch
+  (Redelmeier traversal, no shared code with the solver) and confirms
+  by direct set inclusion that the reported witness contains every
+  piece under some rotation / reflection / translation. This is an
+  algorithmic check of the upper bound disjoint from the SAT search.
+- *Second independent verifier (disjoint-engine lower bound).* A second
+  verifier re-builds the same relaxed-cover CNF and re-runs the
+  infeasibility proof on the glucose SAT engine instead of CaDiCaL.
+  Agreement of two different SAT engines on UNSAT closes the
+  "engine-bug" failure mode for the lower bound.
+
+**What ships in this repository.** The CNF / LRAT pairs and their
+shared sidecar (with SHA-256 and verdict) live under
+`research/certificates/`, with a small README naming the one-line
+checker command. The first and second verifier results + run logs ship
+under `research/`. The solver and verifier source are not shipped (they
+import the private shared library and would not run standalone), but
+the certificates do not need them: any LRAT checker re-verifies any
+shipped (.cnf, .lrat) pair with no project code at all, e.g.
 
 ```
-python code/solve_a327094.py --n 1-10 --emit-drat --check-drat --check-method lrat
+lrat-check research/certificates/n10_5x10_k30.cnf \
+           research/certificates/n10_5x10_k30.lrat
 ```
 
-The two independent verifiers are run over the proved range:
-
-```
-python code/verify_method1.py 10
-python code/verify_method2.py 10
-```
-
-verify_method1 is the geometric upper-bound check; verify_method2 is the
-relaxed-unsatisfiability lower-bound check on the glucose engine. Per-term LRAT
-certificates and the certification summary are written under the project's
-research directory.
+A `s VERIFIED` line confirms the lower-bound proof for that term and
+window.
 
 ## Acknowledgements
 
