@@ -63,7 +63,7 @@ within the window above: a container of `a(n)` cells exists, and no container of
 at `n = 3` and `n = 4` and loosens after that (`45` against `31` at `n = 10`).
 
 The smallest container achieving each value is drawn in the figure gallery,
-[`oeis-a327094-figures.pdf`](oeis-a327094-figures.pdf). The shapes grow chunkier
+[`figure.pdf`](figure.pdf). The shapes grow chunkier
 as `n` rises: from almost a single fat row at small `n`, through the cross at
 `n = 5` that first bulges out of one row to swallow the plus-pentomino, to the
 thick staircase at `n = 10` that absorbs the most contorted decominoes.
