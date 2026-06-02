@@ -89,36 +89,11 @@ each search heuristic in turn (symmetry breaking, lonely-cell clauses, the
 translation breaker) leaves every value unchanged, so the heuristics only prune
 the search and never steer the answer.
 
-## Examples
+## The smallest containers
 
-Each figure shows one smallest container for that `n`: the filled squares are the
-container, the pale squares its bounding box. For `n = 3`, four cells suffice.
-
-**`a(3) = 4`**
-
-![Smallest container for n = 3](figures/n03.svg)
-
-The cross for `n = 5` is the first shape that has to bulge out of a single fat
-row to swallow the plus-pentomino.
-
-**`a(5) = 9`**
-
-![Smallest container for n = 5](figures/n05.svg)
-
-By `n = 7` the container is essentially two solid rows with a notch.
-
-**`a(7) = 17`**
-
-![Smallest container for n = 7](figures/n07.svg)
-
-And the largest proved term, `n = 10`, is a staircase that thickens toward its
-base to absorb the most contorted decominoes.
-
-**`a(10) = 31`**
-
-![Smallest container for n = 10](figures/n10.svg)
-
-The full gallery, every smallest container from `n = 1` to `n = 10`:
+Each figure below shows one smallest container for that `n`: the filled squares
+are the container, the pale squares its bounding box. Several containers can tie
+for the minimum; we draw one of them.
 
 | | | |
 |:--:|:--:|:--:|
@@ -131,8 +106,11 @@ The full gallery, every smallest container from `n = 1` to `n = 10`:
 | ![n=10](figures/n10.svg) | | |
 | `a(10) = 31` | | |
 
-The shapes grow chunkier as `n` rises: the early containers are nearly a single
-fat row, while `a(10)` needs several stacked rows.
+The shapes grow chunkier as `n` rises. The early containers are almost a single
+fat row; the cross at `n = 5` is the first that has to bulge out of one row to
+swallow the plus-pentomino; by `n = 7` it is two solid rows with a notch; and
+`a(10)` is a staircase that thickens toward its base to absorb the most contorted
+decominoes.
 
 ## Patterns and open questions
 
