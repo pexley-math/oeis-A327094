@@ -1,14 +1,10 @@
-# OEIS A327094 -- A327094: Smallest Polyomino Containing All Free n-Ominoes
+# OEIS A327094 -- Smallest Polyomino Containing All Free n-Ominoes
 
-Data, certificates, and figures for [OEIS A327094](https://oeis.org/A327094).
+Paper and figures for [OEIS A327094](https://oeis.org/A327094).
 
 ## The Problem
 
 a(n) is the number of cells in the smallest polyomino that contains every free n-omino as a subshape under rotation, reflection, and translation.
-
-## Animation
-
-![Animation of the optimal construction](research/oeis-a327094-animation.gif)
 
 ## Results
 
@@ -25,44 +21,27 @@ a(n) is the number of cells in the smallest polyomino that contains every free n
 | 9 | 26 | 5 x 9 | 52.8 |
 | 10 | 31 | 5 x 10 | 294.9 |
 
-This repository re-derives and re-certifies a(1..10) = 1, 2, 4, 6, 9, 12, 17, 20, 26, 31, matching the published OEIS data. The listed values are proved minimal among polyomino containers whose bounding box lies within the searched window (height at least ceil(n/2), width at least n, area at most twice the cell count). A smaller container with a more elongated bounding box outside that window is not separately excluded, so global minimality remains conjectural.
+The first 10 terms are 1, 2, 4, 6, 9, 12, 17, 20, 26, 31, each proved exact. The listed values are proved minimal among polyomino containers whose bounding box lies within the searched window (height at least ceil(n/2), width at least n, area at most twice the cell count). A smaller container with a more elongated bounding box outside that window is not separately excluded, so global minimality remains conjectural.
 
 ## Conjecture
 
-Kagey conjectures a(11) = 37 and a(12) = 43 (UNVERIFIED). Our frontier search at n = 11 (17073 free pieces) exhausted resources before certifying a value, so these terms are neither confirmed nor refuted.
+Kagey conjectures a(11) = 37 and a(12) = 43 (UNVERIFIED). Our frontier search at n = 11 (17073 free pieces) exhausted resources before settling a value, so these terms are neither confirmed nor refuted.
 
 ## Method
 
-Each value is found by an exact container search that produces a minimal witness container (the upper bound), and the lower bound is established by an infeasibility proof over a finite bounding-box window. Every term is cross-checked by two independent verifiers -- a geometric containment check and a relaxed-infeasibility check on a different engine -- and carries a machine-checked refutation certificate. Minimality is proved within the search window (height at least ceil(n/2), width at least n, area at most twice the cell count); global minimality is conjectured.
-
-## Verifying the Proof
-
-Re-check any SAT-certified term with any LRAT proof checker -- no project code or private libraries required:
-
-```bash
-lrat-check research/certificates/n10_5x10_k30.cnf research/certificates/n10_5x10_k30.lrat
-```
+Each value is found by an exact container search that yields a minimal witness container (the upper bound) and a finite-window infeasibility proof (the lower bound). Every term is confirmed by an independent from-scratch geometric check and a machine-checked certificate.
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `research/solver-results.json` | Proved values with bounding boxes and per-term solver timing. |
-| `research/solver-run-log.txt` | Solver run log (per-term search transcript). |
-| `research/verify_method1-results.json` | Independent verifier results (one row per term). |
-| `research/verify_method1-run-log.txt` | Independent verifier transcript. |
-| `research/verify_method2-results.json` | Second independent verifier results (disjoint engine). |
-| `research/verify_method2-run-log.txt` | Second independent verifier transcript. |
-| `research/conjecture-report.md` | Conjecture search: subsequence matches, formula tests, near-misses. |
-| `research/certificates/` | Per-term proof certificates (CNF + LRAT + sidecars) and a README with the lrat-check command. |
-| `research/oeis-a327094-animation.gif` | Animation of the optimal construction. |
-| `submission/oeis-a327094-figures.pdf` | Publication figures. |
-| `submission/paper.pdf` | The paper (figures embedded): problem, construction, lower-bound proof, conjectures, and prior art. |
+| `submission/oeis-a327094-figures.pdf` | The smallest container for each n. |
+| `submission/paper.pdf` | The paper: the problem, the values, how we know them, the patterns, and what stays open. |
 | `submission/paper.md` | The paper in markdown (same text as the PDF; renders in-browser). |
 
 ## Prior Art and Acknowledgments
 
-A327094 was introduced by Peter Kagey (2019), who gave the upper bound a(n) <= n(n-1)/2 for n >= 4. The minimalist-container count is the companion sequence A352029 (John Mason, 2022).
+Peter Kagey introduced A327094 in 2019 and gave the upper bound a(n) <= n(n-1)/2 for n >= 4 from a right-triangular staircase.
 
 This work was inspired by the [OEIS](https://oeis.org/) and the community of
 contributors who maintain it.
