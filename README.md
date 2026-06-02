@@ -62,6 +62,12 @@ within the window above: a container of `a(n)` cells exists, and no container of
 `a(n) - 1` cells exists within that window. Kagey's bound `n(n-1)/2` is tight only
 at `n = 3` and `n = 4` and loosens after that (`45` against `31` at `n = 10`).
 
+The smallest container achieving each value is drawn in the figure gallery,
+[`oeis-a327094-figures.pdf`](oeis-a327094-figures.pdf). The shapes grow chunkier
+as `n` rises: from almost a single fat row at small `n`, through the cross at
+`n = 5` that first bulges out of one row to swallow the plus-pentomino, to the
+thick staircase at `n = 10` that absorbs the most contorted decominoes.
+
 ## How we know
 
 Each term needs an upper bound and a matching lower bound. We search top-down from
@@ -88,29 +94,6 @@ engine, so the lower bound does not rest on one solver being bug-free. Removing
 each search heuristic in turn (symmetry breaking, lonely-cell clauses, the
 translation breaker) leaves every value unchanged, so the heuristics only prune
 the search and never steer the answer.
-
-## The smallest containers
-
-Each figure below shows one smallest container for that `n`: the filled squares
-are the container, the pale squares its bounding box. Several containers can tie
-for the minimum; we draw one of them.
-
-| | | |
-|:--:|:--:|:--:|
-| ![n=1](figures/n01.svg) | ![n=2](figures/n02.svg) | ![n=3](figures/n03.svg) |
-| `a(1) = 1` | `a(2) = 2` | `a(3) = 4` |
-| ![n=4](figures/n04.svg) | ![n=5](figures/n05.svg) | ![n=6](figures/n06.svg) |
-| `a(4) = 6` | `a(5) = 9` | `a(6) = 12` |
-| ![n=7](figures/n07.svg) | ![n=8](figures/n08.svg) | ![n=9](figures/n09.svg) |
-| `a(7) = 17` | `a(8) = 20` | `a(9) = 26` |
-| ![n=10](figures/n10.svg) | | |
-| `a(10) = 31` | | |
-
-The shapes grow chunkier as `n` rises. The early containers are almost a single
-fat row; the cross at `n = 5` is the first that has to bulge out of one row to
-swallow the plus-pentomino; by `n = 7` it is two solid rows with a notch; and
-`a(10)` is a staircase that thickens toward its base to absorb the most contorted
-decominoes.
 
 ## Patterns and open questions
 
