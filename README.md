@@ -18,7 +18,9 @@ translation. We want `a(n)`, the fewest cells a container for size `n` can have.
 This is OEIS A327094 (Peter Kagey, 2019), who gave an upper bound from a
 right-triangular staircase:
 
-$$a(n) \le \frac{n(n-1)}{2} \quad (n \ge 4).$$
+```
+a(n) <= n(n-1)/2   (n >= 4)
+```
 
 The values listed here are proved minimal among containers whose bounding box
 lies within a searched window: height at least `ceil(n/2)`, width at least `n`,
@@ -43,7 +45,9 @@ The first two terms are immediate: `a(1) = 1` (the single monomino) and `a(2) =
 A candidate container of `k` cells is sought inside a finite set of bounding
 boxes, the *window*: boxes of height `h` and width `w` with
 
-$$h \ge \left\lceil \tfrac{n}{2} \right\rceil, \qquad w \ge n, \qquad k \le h\,w \le 2k.$$
+```
+h >= ceil(n/2),   w >= n,   k <= h*w <= 2k
+```
 
 The height and width bounds are forced -- a container must span the straight
 `n`-omino both ways -- so the area cap is the one assumption that makes the
@@ -102,17 +106,23 @@ differences are `1, 2, 2, 3, 3, 5, 3, 6, 5` and its second differences are `1, 0
 1, 0, 2, -2, 3, -1`, dropping back at `n = 7` to `8`. That irregularity is real,
 not noise. A least-squares quadratic,
 
-$$a(n) \approx 0.269\,n^2 + 0.399\,n + 0.25,$$
+```
+a(n) ~ 0.269 n^2 + 0.399 n + 0.25
+```
 
 tracks `n <= 6` but misses `n = 7` (predicting `16`, not `17`) and `n = 8`
 (predicting `21`, not `20`); a cubic fails the same way; no small-integer
 recurrence
 
-$$a(n) = p\,a(n-1) + q\,a(n-2) + s$$
+```
+a(n) = p*a(n-1) + q*a(n-2) + s
+```
 
 fits exactly; and a floor form
 
-$$\left\lfloor \frac{n^2 + c}{d} \right\rfloor + \delta$$
+```
+floor( (n^2 + c) / d ) + delta
+```
 
 matches fewer than seven of the ten terms for every small `c` and `d`. We found no
 closed form over the proved range.
